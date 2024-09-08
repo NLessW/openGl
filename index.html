@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:title" content="AI가 생성한 이미지" />
+  <meta property="og:description" content="AI로 생성된 이미지입니다." />
+  <meta property="og:image" content="" id="ogImage" />
+  <title>AI 이미지 미리보기</title>
+  <script>
+    // URL에서 이미지 파라미터 가져오기
+    function getQueryParam(param) {
+      var urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(param);
+    }
+
+    window.onload = function() {
+      var imageUrl = getQueryParam('image');
+      if (imageUrl) {
+        document.getElementById('previewImage').src = imageUrl;
+        document.getElementById('ogImage').setAttribute('content', imageUrl);  // og:image 업데이트
+      }
+    };
+  </script>
+</head>
+<body>
+  <h1>AI 이미지 미리보기</h1>
+  <img id="previewImage" src="" alt="AI로 생성된 이미지" />
+</body>
+</html>
